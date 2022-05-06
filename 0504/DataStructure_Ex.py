@@ -1,32 +1,32 @@
 # 파이썬 자료구조
 # List
 list1 = [1,2,3]
-print(type(list1)) # <class 'list'> 출력
-print(list1) # [1, 2, 3] 출력
-print(list1[0]) # 1 출력
-print(list1[2]) # 3 출력
+print(type(list1))  # <class 'list'> 출력
+print(list1)  # [1, 2, 3] 출력
+print(list1[0])  # 1 출력
+print(list1[2])  # 3 출력
 
 # Tuple
 tuple1 = (1,2,3)
-print(type(tuple1)) # <class 'tuple'>
-print(tuple1) # (1, 2, 3)
-print(tuple1[0]) # 1
+print(type(tuple1))  # <class 'tuple'>
+print(tuple1)  # (1, 2, 3)
+print(tuple1[0])  # 1
 
 # Set
 set1 = set([1,2,3])
-print(type(set1)) # <class 'set'>
-print(set1) # {1, 2, 3}
+print(type(set1))  # <class 'set'>
+print(set1)  # {1, 2, 3}
 
 set2 = {1,2,3}
-print(type(set2)) # <class 'set'>
-print(set2) # {1, 2, 3}
+print(type(set2))  # <class 'set'>
+print(set2)  # {1, 2, 3}
 
 # 정보처리 실기 기출문제 풀이1
-country = {'한국', '미국', '프랑스', '일본'} # 집합변수
+country = {'한국', '미국', '프랑스', '일본'}  # 집합변수
 country.add('영국')
 country.add('싱가폴')
 country.remove('일본')
-country.update(['홍콩', '한국', '스위스']) # 여러개를 추가하는 개념
+country.update(['홍콩', '한국', '스위스'])  # 여러개를 추가하는 개념
 print(country)
 # [정답] - 파이썬 자료구조의 Set은 '순서를 유지하지 않고 저장', '중복을 허용하지 않음'
 # {'스위스', '영국', '싱가폴', '미국', '한국', '홍콩', '프랑스'}
@@ -35,8 +35,8 @@ print(country)
 # 정보처리 실기 기출문제 풀이2
 class good:
     li = ["seoul", "kyeonggi", "inchon", "daejeon", "daegu", "pusan"]
-g = good() # good 인스턴스 객체 생성
-str01 = '' # 빈 문자열
+g = good()  # good 인스턴스 객체 생성
+str01 = ''  # 빈 문자열
 
 for i in g.li:
     str01 = str01 + i[0]
@@ -52,7 +52,7 @@ print(lol[2][1])
 for sub in lol:
     for item in sub:
         print(item, end='')
-    print() # 줄바꿈
+    print()  # 줄바꿈
 # [정답]
 # [1,2,3]
 # 7
@@ -74,3 +74,28 @@ for i in li:
 print('a:',a,'str01:',str01)
 # [정답]
 # a: 7 str01: KoreaAC
+
+# 정보처리 실기 기출문제 풀이5
+a, b = 100, 200
+print(a == b)
+# [정답] False => 첫 글자는 대문자로 함.
+
+# 정보처리 실기 기출문제 풀이6
+a = 100
+resulr = 0
+
+for i in range(1,3):  # 1부터 3미만까지 => 즉 1,2
+    result = a >> i  # >> 비트(0 또는 1) 연산자
+    result = result + 1
+print(result)
+# [정답] 26
+
+dict1 = {'name':'손흥민','phone':'010-5421-1111','email':'son77@naver.com'}
+print(type(dict1))  # <class 'dict'>
+print(dict1['name'])  # 손흥민 => 키 값('name')을 준다.
+print(dict1['phone'])  # 010-5421-1111
+print(dict1['email'])  # son77@naver.com
+print(dict1)  # {'name': '손흥민', 'phone': '010-5421-1111', 'email': 'son77@naver.com'}
+
+string1 = "Python is Good!"
+print(type(string1))  # <class 'str'>
