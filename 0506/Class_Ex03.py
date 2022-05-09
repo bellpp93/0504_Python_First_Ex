@@ -7,5 +7,5 @@ class Calculator(Add):  # 자식 클래스에서 '상속' 받는 법 => class �
         return n1 - n2
 
 obj = Calculator()
-print(obj.add(10, 20))  # 30
-print(obj.sub(30, 10))  # 20
+print(obj.add(10, 20))  # [출력] 30
+print(obj.sub(30, 10))  # [출력] 20
