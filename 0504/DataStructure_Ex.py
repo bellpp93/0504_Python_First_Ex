@@ -21,6 +21,7 @@ set2 = {1,2,3}
 print(type(set2))  # <class 'set'>
 print(set2)  # {1, 2, 3}
 
+# Dictionary
 dict1 = {'name':'손흥민','phone':'010-5421-1111','email':'son77@naver.com'}
 print(type(dict1))  # <class 'dict'>
 print(dict1['name'])  # 손흥민 => 키 값('name')을 준다.
