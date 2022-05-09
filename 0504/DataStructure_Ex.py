@@ -1,4 +1,5 @@
 # 파이썬 자료구조
+
 # List
 list1 = [1,2,3]
 print(type(list1))  # <class 'list'> 출력
