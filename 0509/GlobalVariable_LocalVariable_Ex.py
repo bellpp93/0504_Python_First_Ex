@@ -28,7 +28,7 @@ print(param)  # [출력] 50
 # 멤버 체크하기
 listdata = [10,20,30,40]
 result1 = 50 in listdata  # 값 in 자료구조
-print(result1)  # False
+print(result1)  # [출력] False
 
 result2 = 40 in listdata
-print(result2)  # True
+print(result2)  # [출력] True
