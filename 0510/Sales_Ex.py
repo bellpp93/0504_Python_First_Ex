@@ -22,6 +22,13 @@ for keys in key_values:
     value = num[::-1]  # "00007895"
     ret = ''
     for i, c in enumerate(value):
+        i = i + 1
+        if i != len(value) and i%3 == 0:
+            ret = ret + (c + ',')
+        else:
+            ret = ret + c
+    ret = ret[::-1]
+    print("%s 판매실적 : %s원" %(keys, ret))
 
 '''
 [참고]
@@ -36,4 +43,17 @@ for c in name:
     reverse_name = c + reverse_name
 print(f'name : {name}')
 print(f'reverse : {reverse_name}')
+
+# 슬라이싱 [::-1] 이용해서 문자열 뒤집기
+name1 = "Python is Good!!"
+name2 = name1[::1]
+name3 = name1[::2]
+name4 = name1[::-1]
+name5 = name1[::-2]
+
+print(f'name : {name1}')
+print(f'name[::1] : {name2}')
+print(f'name[::2] : {name3}')
+print(f'name[::-1] : {name4}') # 우리가 원하는 역순 출력
+print(f'name[::-2] : {name5}')
 '''
