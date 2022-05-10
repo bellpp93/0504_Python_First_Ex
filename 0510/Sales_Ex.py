@@ -17,6 +17,7 @@ key_values = sales_performance.keys()
                                         3자리 뒤에 콤마를 넣는다. => 000,078,95
     3. 000,078,95 => 59,870,000
 '''
+print("<2022년 상반기 판매실적>")
 for keys in key_values:
     num = str(sales_performance[keys])
     value = num[::-1]  # "00007895"
