@@ -10,11 +10,11 @@ for i in range(int(game_num)):  # 0 ~ 4
     balls = list(range(1,46))   # 1 ~ 45 까지 만들겠다.
     lotto_result = []           # 데이터가 없는 빈 리스트 자료구조 생성
 
-    for j in range(6):           # 0 ~ 5 즉, 6번 반복해라
+    for j in range(6):          # 0 ~ 5 즉, 6번 반복해라
         shuffle(balls)          # 1 ~ 45 까지를 무작위로 섞는다.
         number = balls.pop()
         lotto_result.append(number)
-    lotto_result.sort()                  # 오름차순으로 정렬시켜라
+    lotto_result.sort()         # 오름차순으로 정렬시켜라
     print('로또번호[%d] :' %(i+1), end=' ')
     print(lotto_result)
     sleep(1)
