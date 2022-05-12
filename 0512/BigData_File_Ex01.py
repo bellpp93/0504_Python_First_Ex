@@ -1,6 +1,6 @@
 """
     파이썬으로 빅데이터 파일 분석/처리
-    연도별 출생아 수 통계처리하는 프로그램 작성
+    년도별 출생아 수 통계처리하는 프로그램 작성
 """
 def countBirths():
     ret = []  # list 자료구조 [(2008, 35253373),(2009, 635342626), ...]
@@ -14,7 +14,7 @@ def countBirths():
                     d = d[:-1]      # Emma,F,18813 을 변수에 저장 => 슬라이싱을 적용하여 코딩
                 birth = d.split(',')[2]
                 count += int(birth)
-        ret.append((y, count))
+        ret.append((y, count))      # append() 함수는 인자값 하나만 필요함!!
     return ret
 
 result = countBirths()
