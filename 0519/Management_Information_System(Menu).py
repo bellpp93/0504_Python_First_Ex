@@ -98,6 +98,9 @@ tree.column(1, width=80)
 tree.column(2, width=150)
 tree.column(3, width=250)
 
+# Treeview의 높이 설정
+tree.config(height=22)
+
 # 앱 타이틀 라벨 추가
 fontStyle = tkFont.Font(family='궁서체', size=28)
 lbl_title = Label(topFrame, text='고객 정보 관리 시스템', font=fontStyle)
