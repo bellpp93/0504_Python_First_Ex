@@ -78,6 +78,16 @@ def saveEvtHandler():
     with open('data_list.pickle', 'wb') as fw:  # with는 파일을 자동으로 닫게 해준다.
         pickle.dump(data_list, fw)  # pickle 모듈의 dump() 함수는 인자값 2개 => (객체, 파일)
 
+def loadEvtHandler():
+    print('파일 열기 ...')
+    global data_list
+    global seq
+
+    with open('data_list.pickle', 'rb') as fr:
+        data_list = pickle.load(fr)
+        refreshTreeview(data_list)
+        seq = data_list[len(data_list)-1][0]
+
 win = Tk()  # 객체 생성
 win.title('고객정보관리 시스템')
 win.geometry('%dx%d+%d+%d' %(800, 600, 10, 10))  # 넓이x높이+x축+y축
@@ -85,7 +95,7 @@ win.geometry('%dx%d+%d+%d' %(800, 600, 10, 10))  # 넓이x높이+x축+y축
 menubar = Menu(win)
 filemenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label='File', menu=filemenu)
-filemenu.add_command(label='열기')
+filemenu.add_command(label='열기', command=loadEvtHandler)
 filemenu.add_command(label='저장', command=saveEvtHandler)
 filemenu.add_separator()  # 줄 넣기
 filemenu.add_command(label='닫기')
