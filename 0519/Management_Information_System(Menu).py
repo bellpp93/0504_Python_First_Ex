@@ -25,6 +25,10 @@ def refreshTreeview(data_list):
         deleteTreeData()
         refreshTreeData(data_list)
 
+def outputEvtHandler():
+    print('전체 보기 ...')
+    refreshTreeview(data_list)
+
 seq = 0
 def inputEvtHandler():
     print('추가 ...')
@@ -44,7 +48,28 @@ def inputEvtHandler():
     data_list.append((seq, name, phone, email))
 
     refreshTreeview(data_list)
-    ## inputEvtHandler() END
+# inputEvtHandler() END ================================================
+
+def searchEvtHandler():
+    print('이름 검색 ...')
+    sname = entry_name.get()
+    if sname == "":
+        messagebox.showinfo('경고', '검색할 이름을 입력하세요!')
+        return
+
+    search_data_list = []
+
+    for data in data_list:
+        try:
+            idex = data.index(sname)
+            search_data_list.append(data)
+        except:
+            pass  # 예외가 발생하여도 처리하지 않고 회피할 수 있는 방법이다.
+    if search_data_list == []:
+        messagebox.showinfo('경고', '찾는 정보가 없습니다!')
+        return
+    refreshTreeview(search_data_list)
+# searchEvtHandler() END ================================================
 
 def modifyEvtHandler():
     print('수정 ...')
@@ -69,6 +94,27 @@ def modifyEvtHandler():
 
     if idx == -1:
         messagebox.showinfo('경고', '찾는 정보가 없습니다.')
+# modifyEvtHandler() END ================================================
+
+def deleteEvtHandler():
+    print('삭제 ...')
+    sname = entry_name.get()
+    if sname == "":
+        messagebox.showinfo('경고', '삭제할 이름을 입력하세요!')
+        return
+
+    idex = -1
+    for data in data_list:
+        try:
+            idx = data.index(sname)
+            del data_list[data_list.index(data)]
+            refreshTreeview(data_list)
+        except:
+            pass
+
+    if idx == -1:
+        messagebox.showinfo('경고', '찾는 정보가 없습니다.')
+# deleteEvtHandler() END ================================================
 
 # pickle 모듈을 불러온다.
 import pickle
@@ -98,7 +144,7 @@ menubar.add_cascade(label='File', menu=filemenu)
 filemenu.add_command(label='열기', command=loadEvtHandler)
 filemenu.add_command(label='저장', command=saveEvtHandler)
 filemenu.add_separator()  # 줄 넣기
-filemenu.add_command(label='닫기')
+filemenu.add_command(label='닫기', command=win.destroy)
 
 helpmenu = Menu(menubar, tearoff=0)
 menubar.add_cascade(label='Help', menu=helpmenu)
@@ -157,11 +203,11 @@ entry_email.grid(row=2, column=1, padx=5, pady=5)
 panedwindow = PanedWindow(buttonFrame, relief='raised', bd=0)
 panedwindow.pack()
 
-btn_output = Button(panedwindow, text='전체보기')
+btn_output = Button(panedwindow, text='전체보기', command=outputEvtHandler)
 btn_input = Button(panedwindow, text='추가', command=inputEvtHandler)
-btn_search = Button(panedwindow, text='이름 검색')
+btn_search = Button(panedwindow, text='이름 검색', command=searchEvtHandler)
 btn_modify = Button(panedwindow, text='수정', command=modifyEvtHandler)
-btn_delete = Button(panedwindow, text='삭제')
+btn_delete = Button(panedwindow, text='삭제', command=deleteEvtHandler)
 
 panedwindow.add(btn_output)
 panedwindow.add(btn_input)
